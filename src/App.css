@@ -1,0 +1,96 @@
+.App {
+  background-image: url("./photos/white.jpg");
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  background-size: cover;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.photo1 {
+  justify-content: center; /* horizontally center */
+  align-items: center;
+}
+
+.text1 {
+  position: relative;
+  top: 50vh;
+  font-size: x-large;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: lightblue;
+  color: white;
+}
+
+.nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.vid {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: 25vh;
+}
+
+.moveArrow {
+  animation-name : firstArrowMove;
+  animation-iteration-count : infinite;
+  animation-direction : alternate;
+  animation-duration : 1s;
+}
+
+@keyframes firstArrowMove {
+  from {transform: translateY(0px);}
+  to {transform: translateY(20px)};
+}
+
+img {
+  max-width:100%;
+}

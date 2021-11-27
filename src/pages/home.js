@@ -1,5 +1,4 @@
-import React, { useState,useEffect } from "react";
-import selfy from "./../photos/selfy4.png";
+import React, { useState,} from "react";
 import logo from "./../photos/logo512.png";
 import logo2 from "./../photos/logo192.png";
 import "./../App.css";
@@ -7,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container  from "react-bootstrap/Container";
-import { height, text } from "dom-helpers";
 import Image from 'react-bootstrap/Image';
 import arrow from "./../photos/Arrow-down.svg";
 import django from "./../photos/django.png";
@@ -15,50 +13,65 @@ import js from "./../photos/javascript.png";
 import reduxpic from "./../photos/redux.png";
 import aws from "./../photos/aws.jpg";
 import postgres from './../photos/postgresql.png';
-import python from './../photos/python-logo.png'
+import python from './../photos/python-logo.png';
+
+import useInterval from "./../components/functions/useInterval";
+import Arrow from "../components/parts/Arrow";
+
+
 export default function Home() {
 const [textRead,setTextRead] = useState("");
 
-const [ct,setCt] = useState(0);
 const [ctList,setCtList] = useState(0);
+const [ct,setCt] = useState(0);
+const [direction, setDirection] = useState('RIGHT')
 const textList = [
-  'world class engineering ',
-  'high preformance ',
-  'professionalism ',
-  'synergy ',
-  'attention to detail ',
+  'Engineer .',
+  'Top Value .',
+  'Synergy .',
+  'Attention To Detail .',
+  'Industry Leading .',
+  'Try This Site .',
+  'On Mobile .',
+  
 ];
-const stringVal = 'professional';
 
 
-useEffect(() => {
-
-      
-
-      
-
-},[textRead])
-
-function handleCt(ct,ctList){
-if (ct === textList[ctList].length-1){
-setCt(0);
-}
-setCtList((ctList+1)%textList.length);
-setCt(ct+1);
-
-}
-
-
-      
-      
-      setInterval(() =>{
+   
+  useInterval(() =>{
       //do what you need here
-      setTextRead(textList[ctList].substr(0,ct));
-      handleCt(ct,ctList);
+      if (textList[ctList][ct] === ".") {
+        setDirection("LEFT");
+        setCt(ct-1);
+        return;
+   
+     }
+   
+     if (direction === "LEFT"){
+       if(ct===0 && ctList===textList.length-1){
+         setCtList(0);
+         setDirection("RIGHT");
+         return;
+       };
+       if(ct === 0 && ctList<textList.length-1){
+         setCtList(ctList+1);
+         setDirection("RIGHT");
+         return
+       }
+       setCt(ct-1);
+       setTextRead(textList[ctList].substring(0,ct));
+       return;
+   
+     }
+     else if(direction === "RIGHT"){
+   
+       setCt(ct+1);
+       setTextRead(textList[ctList].substring(0,ct));
+       return;
+     }
        
        
-       
-      }, 500);
+      }, 100);
     
   
 
@@ -81,11 +94,12 @@ setCt(ct+1);
     </Col>
     <Col>
       <div id='middleHome'>
-        <div >
+        <div style={textReadStyle} >
           {textRead}
         </div>
       </div>
     </Col>
+   
     <Col sm={4}>
      <div >
       <h2 style={divtextStyle} className='align-self-center'>Hello my name is Daniel Kline, I am a Full Stack Software Developer</h2>
@@ -106,11 +120,7 @@ setCt(ct+1);
     </Col>
   </Row>
 
-  <Row>
-      <Col sm={{span:2,offset:5}} style={arrowParentStyle}>
-        <img style={arrowStyle} src={arrow} className='moveArrow'/>
-      </Col>
-  </Row>
+<Arrow/>
 
 <Row>
 
@@ -119,7 +129,7 @@ setCt(ct+1);
   </Col>
   </Row>
   <Row>
-    <Col sm={{span:4,offset:4}} style={{textAlign:'center'}}>
+    <Col md={{span:4,offset:4}} style={{textAlign:'center'}}>
       <h4 style={textStyle}>
         Some of my skills include
       </h4>
@@ -127,80 +137,148 @@ setCt(ct+1);
   </Row>
 
   <Row >
-    <Col sm={{span:2,offset:1}}>
-    <Button variant="outline-info" className='align-self-center'>
-      <Image src={logo2}/>
-      <text>React Native.JS</text>
+    <Col  xs={{span:4,offset:0}} sm={{span:2,offset:1}}>
+    <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
+      <Row>
+        <Col>
+          <Image src={logo2}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <text>React Native.JS</text>
+        </Col>
+      </Row>
       </Button>{' '}
     </Col>
-    <Col sm={{span:2,offset:2}}>
-    <Button variant="outline-info" className='align-self-center'>
-      <Image src={logo2}/>
-      <text>React.JS</text>
+    
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+    <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
+      <Row>
+        <Col>
+          <Image src={logo2}/>
+        </Col>
+      </Row>
+        <Col>
+          <text>React.JS</text>
+        </Col>
       </Button>{' '}
     </Col>
-    <Col sm={{span:2,offset:2}}>
-    <Button variant="outline-info" className='align-self-center'>
-      <Image src={aws} style={imgButtonStyle}/>
-      <text>Amazon Web Services</text>
+
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+      <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={aws} />
+          </Col>
+        </Row>
+        <Row>
+          <text>Amazon Web Services</text>
+        </Row>
       </Button>{' '}
     
     </Col>
   </Row>
+
   <Row>
 
-  <Col>
-  <div style={{height:'8vh'}}></div>
-  </Col>
+    <Col xs={{span:12}}>
+      <div style={{height:'8vh'}}></div>
+    </Col>
   </Row>
 
   <Row >
-    <Col sm={{span:2,offset:1}}>
-    <Button variant="outline-info" className='align-self-center'>
-      <Image src={js}/>
-      <text>JavaScript</text>
+
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:1}}>
+      <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={js}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <text>JavaScript</text>
+          </Col>
+        </Row>
       </Button>{' '}
     </Col>
-    <Col sm={{span:2,offset:2}}>
-    <Button variant="outline-info">
-      <Image src={reduxpic}/>
-      <text>Redux</text>
+
+
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+      <Button variant="outline-info" style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={reduxpic}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <text>Redux</text>
+          </Col>
+        </Row>
       </Button>{' '}
     </Col>
-    <Col sm={{span:2,offset:2}}>
-    <Button variant="outline-info">
-      <Image src={django}/>
-      <text>Django</text>
+
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+      <Button variant="outline-info" style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={django}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <text>Django</text>
+          </Col>
+        </Row>
       </Button>{' '}
     </Col>
   </Row>
 
   <Row>
 
-  <Col>
-  <div style={{height:'8vh'}}></div>
-  </Col>
+    <Col xs={{span:12}}>
+      <div style={{height:'8vh'}}></div>
+    </Col>
   </Row>
 
   <Row>
-  <Col sm={{span:2,offset:3}}>
-    <Button variant="outline-info">
-      <Image src={python}/>
-      <text>Python3</text>
+    <Col xs={{span:6}} sm={{span:2,offset:3}}>
+      <Button variant="outline-info" style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={python}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <text>Python3</text>
+          </Col>
+        </Row>
       </Button>{' '}
     </Col>
-    <Col sm={{span:2,offset:2}}>
-    <Button variant="outline-info">
-      <Image src={postgres}/>
-      <text>PostgreSQL</text>
+    <Col xs={{span:6}} sm={{span:2,offset:2}}>
+      <Button variant="outline-info" style={buttonStyle}>
+        <Row>
+          <Col>
+            <Image src={postgres}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <text>PostgreSQL</text>
+          </Col>
+        </Row>
       </Button>{' '}
     </Col>
   </Row>
-  <Row>
 
-  <Col>
-  <div style={{height:'8vh'}}></div>
-  </Col>
+
+  <Row>
+    <Col xs={{span:12}}>
+      <div style={{height:'8vh'}}></div>
+    </Col>
   </Row>
 </Container>
 
@@ -243,67 +321,18 @@ const arrowParentStyle = {
 const buttonStyle = {
   maxWidth:'100%',
   maxHeight:'100%',
+  minHeight:'100%',
 }
 
-const imgButtonStyle = {
-  maxWidth:'100%',
-  maxHeight:'100%',
-  height:'auto',
-}
 
-const rowbuttonStyle = {
-  height:'20vh',
+const textReadStyle = {
+  fontWeight: 'bold',
+  fontSize: '5vh',
+  color:'#61DAFB',
+  minHeight:'110%',
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
-const styleHome0 = {
-  backgroundColor: '#F3F3F3',
-  height: "100vh",
-  width: "100vw",
-  backgroundPosition: "center",
-
-};
-
-const styleHome1 = {
-  backgroundColor: '#F3F3F3',
-  height: "100vh",
-  width: "100vw",
-  backgroundPosition: "center",
-};
-
-const textRow1 = {
-  margin:'30px'
-}
-
-const divTopHeader = {
-  
-  height: "30vh",
-  margin: '0',
-  
-}
-const textTopHeader = {
- height:'30%',
- width:"40%" 
-}
-
-
-const styleHome2 = {
-  backgroundColor: '#F3F3F3',
-  height: "30vh",
-  width: "30vw",
-  backgroundPosition: "center",
-  
-};
-
-const styleText = {
-  
-};
-
-const imgStyle = {
-  height:'80%',
-  width:'20%',
-}
 

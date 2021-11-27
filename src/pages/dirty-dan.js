@@ -1,122 +1,88 @@
-import React, {useState,useEffect} from "react";
-import img1 from "./../photos/dexter.png";
-import { Link } from "react-router-dom";
-import ReactPlayer from "react-player";
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "./../actions/index";
+import React from "react";
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container  from "react-bootstrap/Container";
-import { height } from "dom-helpers";
-import Image from 'react-bootstrap/Image'
-function DirtyDan() {
-  const [isLoading, setLoading] = useState(false);
-  const isLogged = useSelector((state) => state.loggedReducer);
-  const dispatch = useDispatch();
-  
+import resumeUse from './../photos/resume_img.png';
+import resumeDoc from './../photos/daniel_kline_resume.pdf';
 
-
-  async function handleClick() { 
-    setLoading(true);
-    if (isLogged){
-
-      try{
-        let request = await simulateNetworkRequest();
-        dispatch(actions.logout());
-
-      }catch(error){
-          throw error;
-          //console.log(error)
-      };
-      dispatch(actions.logout());
-    }else{
-     try {
-      let request = await simulateNetworkRequest();
-      dispatch(actions.login());}
-
-      catch(error){
-        
-      }
-    };
-  }
-
-
-  function simulateNetworkRequest() {
-    return new Promise((resolve) => setTimeout(resolve, 20000));
-  }
-
-  async function handleAPICall() {
-    let request = await simulateNetworkRequest()
-    
-    return request
-  }
-
-  useEffect(() => {
-    if (isLoading){ 
-      handleAPICall()
-      setLoading(false)
-        };
-    
-  }, [isLoading]);
-
-
+export default function DirtyDan() {
+const resumeFail = 'FAILED TO LOAD RESUME, FIND MY INFO https://www.linkedin.com/in/klined/'
   return (
     <div className="photo1" style={styleHome}>
-      
-      {isLogged ? (
       <Container>
         <Row>
           <Col>
-              <div style={{height:'10vh'}}></div>
+            <div style={{height:'13vh'}}></div>
           </Col>
         </Row>
+
+        
+        <Row>
+          <Col 
+          xs={{span:12,offset:0}}
+          md={{span:6,offset:1}}
+          lg={{span:6,offset:2}}
+          style={colStyle}
+          >
+            <a href={resumeDoc} download='daniel_kline_resume' target='_blank' rel="noopener noreferrer">
+              <Button variant="primary">Download Resume</Button>
+            </a> 
+          </Col>
+        </Row>
+
+        <Row>
+            <Col>
+              <div style={{height:'7vh'}}></div>
+            </Col>
+        </Row>
+
+        <Row>
+          <Col style={colStyle}
+          sm={{span:12,offset:0}}
+          md={{span:6,offset:1}} 
+          lg={{span:6,offset:2}}
+          >
+             <img src={resumeUse} style={imgStyle} alt={resumeFail}/>    
+          </Col> 
+        </Row>
+        
+
+   
         <Row>
           <Col>
-              <ReactPlayer url="https://www.youtube.com/watch?v=kOyPsl0bI1g" />
-          </Col>
-          <Col>
-              <Button
-                  variant="success" 
-                  disabled={isLoading}
-                  onClick={!isLoading ? handleClick : null}
-                >
-                  Log Out
-              </Button>
+            <div style={{height:'10vh'}}></div>
           </Col>
         </Row>
       </Container>
-      
-      ) : (
-        <Container>
-          <Row>
-            <Col>
-              <Button
-                disabled={isLoading}
-                onClick={!isLoading ? handleClick : null}
-                variant="primary"
-              >
-                Log In
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      )}
       
     </div>
   );
 }
 
-export default DirtyDan;
+
 
 const styleHome = {
   
-  height: "100vh",
+  minHeight: "100vh",
   width: "100vw",
   backgroundPosition: "center",
+
 };
 
+const colStyle = {
+  //alignSelf:'center',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
+}
+
+const imgStyle = {
+  maxWidth:'100%',
+  maxHeight:'100%',
+  height:'auto',
+}
 
 
 

@@ -5,18 +5,16 @@ import Container  from "react-bootstrap/Container";
 
 export default function Footer() {
 return (
-    <>
-     <nav style={styleNav}>
-    <Container>
-        <Row>
-            <Col>
-            <div style={{height:'25vh',backgroundColor: '#283747',width:'100%'}}></div>
-            </Col>
-        </Row>
+    
+    <nav style={styleNav}>
+        <Container>
 
-    </Container>
+            <div style={{height:'25vh',backgroundColor: '#283747',width:'100%'}}></div>
+
+
+        </Container>
     </nav>
-    </>
+    
 );
 }
 const styleNav = {

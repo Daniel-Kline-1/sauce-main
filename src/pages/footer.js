@@ -1,23 +1,24 @@
 import React from "react";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Container  from "react-bootstrap/Container";
 
 export default function Footer() {
 return (
     
-    <nav style={styleNav}>
+    <nav style={navStyle}>
         <Container>
-
-            <div style={{height:'25vh',backgroundColor: '#283747',width:'100%'}}></div>
-
-
+            <div style={divStyle}></div>
         </Container>
     </nav>
     
 );
 }
-const styleNav = {
+const navStyle = {
     backgroundColor: '#283747',
   
   };
+
+const divStyle = {
+    height:'25vh',
+    backgroundColor: '#283747',
+    width:'100%',
+}

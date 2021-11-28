@@ -3,8 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container  from "react-bootstrap/Container";
-import resumeUse from './../photos/resume_img.png';
-import resumeDoc from './../photos/daniel_kline_resume.pdf';
+import resumeUse from './../photos/resumePortfolio.png';
+import resumeDoc from './../photos/resumePortfolio.pdf';
 
 export default function DirtyDan() {
 const resumeFail = 'FAILED TO LOAD RESUME, FIND MY INFO https://www.linkedin.com/in/klined/'

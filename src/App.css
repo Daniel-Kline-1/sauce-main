@@ -93,4 +93,14 @@ nav {
 
 img {
   max-width:100%;
+  
+}
+
+.homeDiv {
+  display: flex;
+  align-items: center;
+}
+
+#aws_django {
+  border-radius: 10%;
 }

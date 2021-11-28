@@ -33,7 +33,7 @@ function Nav() {
           </Col>
 
           <Col style={colStyle} >
-              <Link to="/dirty-dan">
+              <Link to="/resume">
               <Button variant="outline-light" style={navText}>Resume</Button>
               </Link>
           </Col>
@@ -56,7 +56,7 @@ const styleNav = {
 };
 
 const navText = {
-  color: '#DE354C',
+  color: '#824936',//'#DE354C',
 
 }
 

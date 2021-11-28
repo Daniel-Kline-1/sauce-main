@@ -2,12 +2,10 @@ import React, { useState,} from "react";
 import logo from "./../photos/logo512.png";
 import logo2 from "./../photos/logo192.png";
 import "./../App.css";
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container  from "react-bootstrap/Container";
 import Image from 'react-bootstrap/Image';
-import arrow from "./../photos/Arrow-down.svg";
 import django from "./../photos/django.png";
 import js from "./../photos/javascript.png";
 import reduxpic from "./../photos/redux.png";
@@ -138,45 +136,56 @@ const textList = [
 
   <Row >
     <Col  xs={{span:4,offset:0}} sm={{span:2,offset:1}}>
-    <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
-      <Row>
-        <Col>
-          <Image src={logo2}/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <text>React Native.JS</text>
-        </Col>
-      </Row>
-      </Button>{' '}
-    </Col>
-    
-    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
-    <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
-      <Row>
-        <Col>
-          <Image src={logo2}/>
-        </Col>
-      </Row>
-        <Col>
-          <text>React.JS</text>
-        </Col>
-      </Button>{' '}
-    </Col>
-
-    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
-      <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
+    <div style={divBadgeStyle} className='homeDiv'>
+      <div>
         <Row>
           <Col>
-            <Image src={aws} />
+            <Image src={logo2}/>
           </Col>
         </Row>
         <Row>
-          <text>Amazon Web Services</text>
+          <Col>
+            <text>
+              React Native.JS
+            </text>
+          </Col>
         </Row>
-      </Button>{' '}
+      </div>
+      </div>{' '}
+    </Col>
     
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+    <div style={divBadgeStyle} className='homeDiv'>
+        <div>
+        <Row>
+          <Col>
+            <Image src={logo2}/>
+          </Col>
+        </Row>
+          <Col>
+            <text>
+              React.JS
+            </text>
+          </Col>
+          </div>
+      </div>{' '}
+    </Col>
+
+    <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
+      <div style={divBadgeStyle} className='homeDiv'>
+        <div>
+          <Row>
+            <Col>
+              <Image src={reduxpic} />
+            </Col>
+          </Row>
+          <Row>
+            <text>
+              Redux
+            </text>
+          </Row>
+        </div>
+      </div>{' '}
     </Col>
   </Row>
 
@@ -190,49 +199,61 @@ const textList = [
   <Row >
 
     <Col xs={{span:4,offset:0}} sm={{span:2,offset:1}}>
-      <Button variant="outline-info" className='align-self-center' style={buttonStyle}>
-        <Row>
-          <Col>
-            <Image src={js}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <text>JavaScript</text>
-          </Col>
-        </Row>
-      </Button>{' '}
+      <div style={divBadgeStyle} className='homeDiv'>
+          <div>
+          <Row>
+            <Col>
+              <Image src={python}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <text>
+                Python3
+              </text>
+            </Col>
+          </Row>
+          </div>
+      </div>{' '}
     </Col>
 
 
     <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
-      <Button variant="outline-info" style={buttonStyle}>
+      <div style={divBadgeStyle} className='homeDiv'>
+        <div>
         <Row>
           <Col>
-            <Image src={reduxpic}/>
+            <Image src={django} id='aws_django'/>
           </Col>
         </Row>
         <Row>
           <Col>
-            <text>Redux</text>
+            <text>
+              Django
+            </text>
           </Col>
         </Row>
-      </Button>{' '}
+        </div>
+      </div>{' '}
     </Col>
 
     <Col xs={{span:4,offset:0}} sm={{span:2,offset:2}}>
-      <Button variant="outline-info" style={buttonStyle}>
-        <Row>
-          <Col>
-            <Image src={django}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <text>Django</text>
-          </Col>
-        </Row>
-      </Button>{' '}
+      <div style={divBadgeStyle} className='homeDiv'>
+        <div>
+          <Row>
+            <Col>
+              <Image src={postgres}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <text>
+                PostgreSQL
+              </text>
+            </Col>
+          </Row>
+        </div>
+      </div>{' '}
     </Col>
   </Row>
 
@@ -245,32 +266,41 @@ const textList = [
 
   <Row>
     <Col xs={{span:6}} sm={{span:2,offset:3}}>
-      <Button variant="outline-info" style={buttonStyle}>
-        <Row>
-          <Col>
-            <Image src={python}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <text>Python3</text>
-          </Col>
-        </Row>
-      </Button>{' '}
+      <div style={divBadgeStyle} className='homeDiv'>
+        <div>
+          <Row>
+            <Col>
+              <Image src={aws} id='aws_django'/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <text>
+                Amazon Web Services
+              </text>
+            </Col>
+          </Row>
+        </div>
+      </div>{' '}
     </Col>
+
     <Col xs={{span:6}} sm={{span:2,offset:2}}>
-      <Button variant="outline-info" style={buttonStyle}>
-        <Row>
-          <Col>
-            <Image src={postgres}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <text>PostgreSQL</text>
-          </Col>
-        </Row>
-      </Button>{' '}
+      <div style={divBadgeStyle} className='homeDiv'>
+        <div>
+          <Row>
+            <Col>
+              <Image src={js}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <text >
+                JavaScript
+              </text>
+            </Col>
+          </Row>
+        </div>
+      </div>{' '}
     </Col>
   </Row>
 
@@ -294,6 +324,9 @@ const selfyStyle = {
 
 const textStyle = {
   verticalAlign:'middle',
+  justifyContent:'center',
+  alignSelf:'center',
+  color:"black"
   
 }
 
@@ -306,22 +339,16 @@ const divtextStyle = {
 const colStyle = {
   alignItems:'center'
 }
-const arrowStyle = {
-  width:'10vw',
-  height:'10vh',
-  position:'absolute'
-}
 
-const arrowParentStyle = {
-  alignItems:'center',
-  justifyContent: 'center',
-  display:'flex'
-}
-
-const buttonStyle = {
+const divBadgeStyle = {
   maxWidth:'100%',
   maxHeight:'100%',
   minHeight:'100%',
+  textColor:'black',
+  textAlign:'center',
+  backgroundColor:'white',
+  verticalAlign: 'middle',
+  lineHeight:'100%',
 }
 
 

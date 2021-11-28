@@ -50,13 +50,14 @@ function Nav() {
 }
 
 const styleNav = {
-  backgroundColor: '#283747',
+  backgroundColor: '#44AEFE',
   height:'10vh',
 
 };
 
 const navText = {
-  color: '#824936',//'#DE354C',
+  //'#DE354C',
+  fontWeight:'bold'
 
 }
 

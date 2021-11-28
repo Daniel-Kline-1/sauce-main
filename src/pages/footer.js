@@ -1,24 +1,22 @@
 import React from "react";
-import Container  from "react-bootstrap/Container";
+
 
 export default function Footer() {
 return (
     
-    <nav style={navStyle}>
-        <Container>
-            <div style={divStyle}></div>
-        </Container>
+    <nav style={navStyle}>  
+      <div style={divStyle}></div>   
     </nav>
     
 );
 }
 const navStyle = {
-    backgroundColor: '#283747',
+    backgroundColor: '#44AEFE',
   
   };
 
 const divStyle = {
-    height:'25vh',
-    backgroundColor: '#283747',
+    height:'15vh',
+    backgroundColor: '#44AEFE',
     width:'100%',
 }

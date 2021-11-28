@@ -7,13 +7,22 @@ import rubix from "./../photos/holdingrubix.jpg";
 import biz from "./../photos/bizzy.jpg";
 import hackathonPic from './../photos/hackathonPic.png';
 
+/* importing made hook compentent */
 import Arrow from "../components/parts/Arrow";
+
+/* importing made hook function */
+import useWindowDimensions from "../components/functions/windowXY";
+
+
 
 
 export default function About() {
+  let { width } = useWindowDimensions();
+
+
   return (
     <div>
-    <Container >
+      <Container >
         <Row>
             <Col>
                 <div style={{height:'12vh'}}></div>
@@ -51,11 +60,20 @@ export default function About() {
         </Row>
 
 
-        <Row>
+        {width > 500 ?
+        
+        (<Row>
           <Col>
             <div style={spaceDivStyle2}></div>
           </Col>
         </Row>
+        ):(
+          <Row>
+          <Col>
+            <div style={{height:'16vh'}}></div>
+          </Col>
+        </Row>
+        )}
 
 
         <Arrow/>
@@ -292,7 +310,7 @@ export default function About() {
             </p>
           </Col>
         </Row>
-    </Container>
+      </Container>
     </div>
   );
 }
@@ -304,7 +322,7 @@ const spaceDivStyle1 = {
 }
 
 const spaceDivStyle2 = {
-  height:'25vh'
+  height:'30vh'
 }
 
 const imgStyle = {

@@ -26,7 +26,7 @@ const resumeFail = 'FAILED TO LOAD RESUME, FIND MY INFO https://www.linkedin.com
           style={colStyle}
           >
             <a href={resumeDoc} download='daniel_kline_resume' target='_blank' rel="noopener noreferrer">
-              <Button variant="primary">Download Resume</Button>
+              <button id='downloadButton'>Download Resume</button>
             </a> 
           </Col>
         </Row>
